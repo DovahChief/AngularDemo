@@ -30,7 +30,7 @@ export class PersonaComponent implements OnInit {
   }
 
   cambiaNombre() {
-    this.nombre = 'Mike el joto';
+    this.nombre = 'Nombre cambiado';
   }
 
   onSubmit() {
