@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for=""> Nombre </label>
+          <input placeholder="Nombre" type="text" name="nombre"
+              class="form-control" [(ngModel)]="nombre">
+        </div>
+        <div class="form-group">
+          <label for=""> Correo </label>
+          <input placeholder="Correo" type="text" name="correo"
+             class="form-control" [(ngModel)]="correo">
+        </div>
+        <div class="form-group">
+          <label for=""> Opcion </label>
+          <select class="form-control" name="opcion" id="" [(ngModel)]="edad">
+            <option value="1">Opcion 1</option>
+            <option value="2">Opcion 2</option>
+            <option value="3">Opcion 3</option>
+            <option value="4">Opcion 4</option>
+            <option value="5">Opcion 5</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit"> Submit </button>
+        <li> {{response | json}} </li>
+      </form>
+    </div>
+    <div class="col-sm">
+      <button class="btn btn-success" (click)="cambiaNombre()">Cambiar Nombre</button>
+      <button class="btn btn-success" (click)="getCliente()">Llama Api</button>
+
+    </div>
+    <div class="col-sm">
+      <ul>
+        <li> {{nombre}} </li>
+        <li> {{correo}} </li>
+        <li> {{edad}} </li>
+      </ul>
+
+      <div *ngFor="let c of clientes | async">
+        -- {{c | json}} --
+      </div>
+    </div>
+  </div>
+</div>
