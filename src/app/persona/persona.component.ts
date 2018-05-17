@@ -12,15 +12,16 @@ import { Cliente } from '../model/Cliente';
 
 export class PersonaComponent implements OnInit {
   nombre: string;
-  correo: string;
   edad: number;
   clientes: any;
+  range = Array.from(Array(100).keys());
   response: Cliente;
   data: Cliente;
 
   constructor(private api: ApicallService) { }
 
   ngOnInit() {
+
   }
 
   cambiaNombre() {
@@ -40,13 +41,19 @@ export class PersonaComponent implements OnInit {
     };
 
     this.api.postData('cliente', this.data)
-            .subscribe(response => {
-              console.log(response);
-              this.response = response;
-            });
+    .subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => console.log('Exito' , data),
+      error => console.log('Se presentó un error', error)
+    );
   }
   getCliente () {
-    this.clientes =  this.api.getResource('cliente');
+    this.api.getResource('cliente')
+    .subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      data => this.clientes =  data,
+      error => console.log('Se presentó un error', error)
+    );
   }
 
 }

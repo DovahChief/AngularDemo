@@ -13,6 +13,7 @@ const httpOptions = {
 @Injectable()
 export class ApicallService {
   private url: string;
+  public data: any;
 
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:8081/';
@@ -23,8 +24,7 @@ export class ApicallService {
    * getResource
    */
   public getResource(uri: string) {
-    console.log('--Llamada de Servicio --');
-    return this.http.get(this.url + uri, httpOptions);
+    return this.http.get(this.url + uri, httpOptions)
   }
 
   /**
@@ -32,8 +32,8 @@ export class ApicallService {
     uri: string
     data: any
   */
-  public postData(uri: string, data: any): Observable<Cliente> {
-    return this.http.post<Cliente>(this.url + uri, data , httpOptions);
+  public postData(uri: string, data: any): Observable<any> {
+    return this.http.post<any>(this.url + uri, data , httpOptions);
   }
 
 }

@@ -7,19 +7,19 @@
           <input placeholder="Nombre" type="text" name="nombre"
               class="form-control" [(ngModel)]="nombre">
         </div>
+        <!--
         <div class="form-group">
           <label for=""> Correo </label>
           <input placeholder="Correo" type="text" name="correo"
              class="form-control" [(ngModel)]="correo">
         </div>
+        -->
         <div class="form-group">
-          <label for=""> Opcion </label>
+          <label for=""> Edad </label>
           <select class="form-control" name="opcion" id="" [(ngModel)]="edad">
-            <option value="1">Opcion 1</option>
-            <option value="2">Opcion 2</option>
-            <option value="3">Opcion 3</option>
-            <option value="4">Opcion 4</option>
-            <option value="5">Opcion 5</option>
+            <option value = "{{n}}" *ngFor="let i of range ; let  n = index">
+              {{ i + 1 }} años
+            </option>
           </select>
         </div>
         <button class="btn btn-primary" type="submit"> Submit </button>
@@ -34,13 +34,14 @@
     <div class="col-sm">
       <ul>
         <li> {{nombre}} </li>
-        <li> {{correo}} </li>
         <li> {{edad}} </li>
       </ul>
 
-      <div *ngFor="let c of clientes | async">
-        -- {{c | json}} --
-      </div>
+      <select class="form-control" >
+        <option  *ngFor="let i of clientes">
+          {{ i.nombre }}
+        </option>
+      </select>
     </div>
   </div>
 </div>
