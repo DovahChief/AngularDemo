@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Cliente } from './model/Cliente';
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -8,13 +9,6 @@ const httpOptions = {
     'Content-type': 'application/json'
   })
 };
-
-interface Cliente {
-  id: number;
-  nombre: string;
-  edad: number;
-}
-
 
 @Injectable()
 export class ApicallService {

@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApicallService } from '../apicall.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-
-
-interface Cliente {
-  id: number;
-  nombre: string;
-  edad: number;
-}
+import { Cliente } from '../model/Cliente';
 
 @Component({
   selector: 'app-persona',
